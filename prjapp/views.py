@@ -10,11 +10,11 @@ import json
 import time
 import datetime
 import random
-import requests
-from . util import cartData , guestOrder,update_user_order,is_admin,append_order_into_text_file,get_orders_from_text_file,create_map,append_prefer_in_file,get_prefer_from_file,create_map_current_location_only,append_order_category_into_text_file , get_trend_from_file
+# import requests
+from . util import update_user_order,is_admin
 from django.conf import settings
-from .association_rules import process_association,process_association_categories
-from .decorators import unauth_user,allowed_users,auth_user , admins,time_restrict
+# from .association_rules import process_association,process_association_categories
+from .decorators import unauth_user,allowed_users,auth_user ,time_restrict
 from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
 # bot_name = settings.TELEGRAM_BOT_NAME
@@ -93,7 +93,7 @@ def logout_user(request):
 
 
 ###################################
-# @time_restrict
+@time_restrict
 @auth_user
 def store(request):
     bool = is_admin(request)
