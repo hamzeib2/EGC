@@ -45,7 +45,7 @@ def time_restrict(view_func):
     def wrapper(request, *args, **kwargs):
         boo = is_admin(request)
         current_time = datetime.datetime.now().time()
-        if current_time < datetime.time(9, 0, 0) or current_time > datetime.time(17, 0, 0):
+        if datetime.time(0, 0, 0) <= current_time < datetime.time(9, 0, 0):
             if boo == False:
                 return HttpResponseForbidden("App is not available during this time")
         return view_func(request, *args, **kwargs)
