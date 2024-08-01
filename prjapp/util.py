@@ -4,7 +4,7 @@ from . models import *
 from django.forms import inlineformset_factory
 from django.shortcuts import render,redirect , HttpResponse
 from .decorators import unauth_user,allowed_users,auth_user
-import folium
+# import folium
 import random
 
 
